@@ -14,5 +14,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FacadeByPycoder"
+rootProject.name = "Facade"
+
 
