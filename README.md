@@ -374,3 +374,9 @@ FacadeByPycoder 1.0.0 主要适合：
 ## 说明
 
 FacadeByPycoder 1.0.0 适用于 Minecraft 1.20.1 Forge 端，作者为 Pycoder。
+
+## License
+
+本项目采用 MIT License，详见 [LICENSE](./LICENSE)。
+
+本仓库的 Gradle Wrapper 保留其随附的 Apache-2.0 许可，详见 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md)。
