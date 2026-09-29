@@ -1,0 +1,117 @@
+plugins {
+    java
+    idea
+    eclipse
+    id("net.minecraftforge.gradle") version "[6.0,6.2)"
+}
+
+version = property("mod_version") as String
+group = property("mod_group_id") as String
+
+base {
+    archivesName.set(property("mod_id") as String)
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
+
+minecraft {
+    mappings("official", property("minecraft_version") as String)
+    copyIdeResources.set(true)
+
+    runs {
+        create("client") {
+            workingDirectory(project.file("run"))
+            property("forge.logging.markers", "REGISTRIES")
+            property("forge.logging.console.level", "debug")
+            mods {
+                create(property("mod_id") as String) {
+                    source(sourceSets.main.get())
+                }
+            }
+        }
+
+        create("server") {
+            workingDirectory(project.file("run"))
+            property("forge.logging.markers", "REGISTRIES")
+            property("forge.logging.console.level", "debug")
+            args("--nogui")
+            mods {
+                create(property("mod_id") as String) {
+                    source(sourceSets.main.get())
+                }
+            }
+        }
+
+        create("data") {
+            workingDirectory(project.file("run"))
+            property("forge.logging.markers", "REGISTRIES")
+            property("forge.logging.console.level", "debug")
+            args(
+                "--mod", property("mod_id") as String,
+                "--all",
+                "--output", file("src/generated/resources/"),
+                "--existing", file("src/main/resources/")
+            )
+            mods {
+                create(property("mod_id") as String) {
+                    source(sourceSets.main.get())
+                }
+            }
+        }
+    }
+}
+
+sourceSets.main {
+    resources.srcDir("src/generated/resources")
+}
+
+repositories {
+    maven("https://maven.minecraftforge.net/")
+    mavenCentral()
+}
+
+dependencies {
+    minecraft("net.minecraftforge:forge:${property("minecraft_version")}-${property("forge_version")}")
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    options.encoding = "UTF-8"
+    options.release.set(17)
+}
+
+tasks.processResources {
+    val replaceProperties = mapOf(
+        "loader_version_range" to project.property("loader_version_range"),
+        "mod_license" to project.property("mod_license"),
+        "mod_id" to project.property("mod_id"),
+        "mod_version" to project.property("mod_version"),
+        "mod_name" to project.property("mod_name"),
+        "mod_authors" to project.property("mod_authors"),
+        "mod_description" to project.property("mod_description"),
+        "forge_version_range" to project.property("forge_version_range"),
+        "minecraft_version_range" to project.property("minecraft_version_range")
+    )
+    inputs.properties(replaceProperties)
+    filesMatching("META-INF/mods.toml") {
+        expand(replaceProperties)
+    }
+}
+
+tasks.jar {
+    manifest {
+        attributes(
+            mapOf(
+                "Specification-Title" to project.property("mod_id"),
+                "Specification-Vendor" to project.property("mod_authors"),
+                "Specification-Version" to "1",
+                "Implementation-Title" to project.name,
+                "Implementation-Version" to project.version,
+                "Implementation-Vendor" to project.property("mod_authors")
+            )
+        )
+    }
+    finalizedBy("reobfJar")
+}
+

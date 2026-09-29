@@ -1,0 +1,22 @@
+{
+  "itemGroup.facadebypycoder.main": "FacadeByPycoder",
+  "block.facadebypycoder.facade": "伪装方块",
+  "item.facadebypycoder.facade_simple": "%s 伪装方块",
+  "item.facadebypycoder.facade_stateful": "%s 伪装方块（状态 %s）",
+  "item.facadebypycoder.source": "来源：%s",
+  "item.facadebypycoder.state": "状态：%s / %s",
+  "item.facadebypycoder.stick": "投影工具",
+  "item.facadebypycoder.projection_stick": "投影工具",
+  "commands.facadebypycoder.fbpget.success": "已给予 %s",
+  "commands.facadebypycoder.fbpget.unknown": "没有为 %s 注册伪装方块",
+  "commands.facadebypycoder.fbpget.invalid_state": "无效的伪装状态：%s",
+  "key.categories.facadebypycoder": "FacadeByPycoder",
+  "key.facadebypycoder.ghost_mode": "切换幽灵模式",
+  "message.facadebypycoder.ghost_mode.enabled": "幽灵模式已开启",
+  "message.facadebypycoder.ghost_mode.disabled": "幽灵模式已关闭",
+  "message.facadebypycoder.projection.pos1": "投影点 1：%s",
+  "message.facadebypycoder.projection.pos2": "投影点 2：%s",
+  "message.facadebypycoder.projection.export_success": "投影已导出：%s",
+  "message.facadebypycoder.projection.export_failed": "投影导出失败：%s",
+  "dialog.facadebypycoder.projection_export": "保存 Facade 投影"
+}

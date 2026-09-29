@@ -1,0 +1,22 @@
+{
+  "itemGroup.facadebypycoder.main": "FacadeByPycoder",
+  "block.facadebypycoder.facade": "Facade Block",
+  "item.facadebypycoder.facade_simple": "%s Facade",
+  "item.facadebypycoder.facade_stateful": "%s Facade (state %s)",
+  "item.facadebypycoder.source": "Source: %s",
+  "item.facadebypycoder.state": "State: %s / %s",
+  "item.facadebypycoder.stick": "Facade Projection Tool",
+  "item.facadebypycoder.projection_stick": "Facade Projection Tool",
+  "commands.facadebypycoder.fbpget.success": "Gave %s",
+  "commands.facadebypycoder.fbpget.unknown": "No facade is registered for %s",
+  "commands.facadebypycoder.fbpget.invalid_state": "Invalid facade state: %s",
+  "key.categories.facadebypycoder": "FacadeByPycoder",
+  "key.facadebypycoder.ghost_mode": "Toggle Ghost Mode",
+  "message.facadebypycoder.ghost_mode.enabled": "Ghost mode enabled",
+  "message.facadebypycoder.ghost_mode.disabled": "Ghost mode disabled",
+  "message.facadebypycoder.projection.pos1": "Projection Pos 1: %s",
+  "message.facadebypycoder.projection.pos2": "Projection Pos 2: %s",
+  "message.facadebypycoder.projection.export_success": "Projection exported: %s",
+  "message.facadebypycoder.projection.export_failed": "Projection export failed: %s",
+  "dialog.facadebypycoder.projection_export": "Save Facade Projection"
+}
